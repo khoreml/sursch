@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросы</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <link rel="stylesheet" type="text/js" href="script.js">
+    <link rel="stylesheet" type="text/js" href="script1.js">
+    <style>
+        body {
+            background-color: #b6b1b1;
+            /* Цвет фона */
+            border: 2px solid rgb(35, 35, 35);
+            /* Параметры рамки */
+            padding: 5px;
+            /* Поля вокруг текста */
+            margin: 0;
+            /* Убираем отступы вокруг */
+            padding-left: 10%;
+            /* Поле слева */
+        }
+
+        body {
+            font-family: Arial black, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #b6b1b1;
+        }
+
+
+        .button {
+            background-color: rgb(102, 88, 88);
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(58, 58, 58);
+            /* Изменение фона кнопки при наведении */
+             #additionalField {
+                display: none; /* Изначально скрыто */
+                margin-top: 10px;
+             }}
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <menu>
+                <li><a href="progect.html">Главная</a></li>
+                <li><a href="surveys.html">Опросы</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </menu>
+        </nav>
+    </header>
+    <main>
+        <selection>
+            <h1>Создайте свой опрос</h1>
+        </selection>
+    </main>
+    <button id="createPollButton" style="background-color:#7885b8; color:white; padding:10px 20px; border:none; border-radius:5px; font-size:16px; cursor:pointer;">Создать опрос</button>
+    <div id="pollForm" style="display: none;">
+        <h2>Форма опроса</h2>
+        <button id="createPollButton1" style="background-color: #7885b8; color: white; padding:10px 20px; border:none; border-radius:5px; font-size:14px; cursor:pointer;">Опрос</button>
+        <button id="createPollButton2" style="background-color: #7885b8; color: white; padding:10px 20px; border:none; border-radius:5px; font-size:14px; cursor:pointer;">Голосование</button>
+        <button id="createPollButton3" style="background-color: #7885b8; color: white; padding:10px 20px; border:none; border-radius:5px; font-size:14px; cursor:pointer;">Тестирование</button>
+        <script src="script.js"></script>
+        <div id="pollForm1" class="hidden" style="display: none;">
+            <h4><big>Опрос</big> - форма из одного или нескольких вопросов, правильные ответы отсутствуют</h4>
+        <form id="pollForm">
+            <input type="text" placeholder="Вопрос" required />
+       <input type="text" placeholder="Вариант 1" required />
+       <input type="text" placeholder="Вариант 2" required />
+       <div id="pollResults"></div>
+            <div id="questionsContainer"></div>
+            <button id="addQuestionBtn">Добавить вопрос</button>
+            <button id="addOptionBtn">Добавить вариант ответа</button>
+            <button type="submit">Создать опрос</button>
+            <label>
+                <input type="checkbox"id="anonymousCheckbox"> Отправить анонимно
+            </label>
+       </form>
+        </div>
+    <script src="script1.js"></script>
+    <script>
+        document.getElementById("createPollButton1").onclick = function() {
+            const pollForm = document.getElementById("pollForm1");
+            pollForm.style.display = pollForm.style.display === "none" ? "block" : "none";
+        };
+        document.getElementById("form").onsubmit = function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const question = formData.get("question");
+            const options = formData.get("options").split(",").map(opt => opt.trim());
+            
+            alert(`Вопрос: ${question}\nВарианты: ${options.join(", ")}`);
+        };
+    </script>
+    <div id="pollForm2" class="hidden" style="display: none;">
+        <h4>Голосование — опрос из одного вопроса с вариантами ответов</h4>
+        <form id="pollForm">
+            <input type="text" placeholder="Вопрос" required />
+       <input type="text" placeholder="Вариант 1" required />
+       <input type="text" placeholder="Вариант 2" required />
+       <div id="pollResults"></div>
+            <div id="questionsContainer"></div>
+            <button id="addOptionBtn">Добавить вариант ответа</button>
+            <button type="submit">Создать голосование</button>
+            <label>
+                <input type="checkbox"id="anonymousCheckbox"> Отправить анонимно
+            </label>
+       </form>
+    </div>
+    <script src="script1.js"></script>
+    <script>
+        document.getElementById("createPollButton2").onclick = function() {
+            const pollForm = document.getElementById("pollForm2");
+            pollForm.style.display = pollForm.style.display === "none" ? "block" : "none";
+        };
+        document.getElementById("form").onsubmit = function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const question = formData.get("question");
+            const options = formData.get("options").split(",").map(opt => opt.trim());
+            
+            alert(`Вопрос: ${question}\nВарианты: ${options.join(", ")}`);
+        };
+    </script>
+    <div id="pollForm3" class="hidden" style="display: none;">
+        <h4>Тестирование — опрос из нескольких вопросов, с проверкой правильности ответов</h4>
+        <form id="pollForm">
+            <input type="text" placeholder="Вопрос" required />
+       <input type="text" placeholder="Вариант 1" required />
+       <input type="text" placeholder="Вариант 2" required />
+       <div id="pollResults"></div>
+            <div id="questionsContainer"></div>
+            <button id="addQuestionBtn">Добавить вопрос</button>
+            <button id="addOptionBtn">Добавить вариант ответа</button>
+            <button type="submit">Создать тестирование</button>
+            <label>
+                <input type="checkbox"id="anonymousCheckbox"> Отправить анонимно
+            </label>
+       </form>
+    </div>
+    <script src="script1.js"></script>
+    <script>
+        document.getElementById("createPollButton3").onclick = function() {
+            const pollForm = document.getElementById("pollForm3");
+            pollForm.style.display = pollForm.style.display === "none" ? "block" : "none";
+        };
+        document.getElementById("form").onsubmit = function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const question = formData.get("question");
+            const options = formData.get("options").split(",").map(opt => opt.trim());
+            
+            alert(`Вопрос: ${question}\nВарианты: ${options.join(", ")}`);
+        };
+    </script>
+    </div>
+    <script>
+        document.getElementById("createPollButton").onclick = function() {
+            const pollForm = document.getElementById("pollForm");
+            pollForm.style.display = pollForm.style.display === "none" ? "block" : "none";
+        };
+        document.getElementById("form").onsubmit = function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const question = formData.get("question");
+            const options = formData.get("options").split(",").map(opt => opt.trim());
+            
+            alert(`Вопрос: ${question}\nВарианты: ${options.join(", ")}`);
+        };
+    </script>
+    <h1>Опросы других пользователей</h1>
+</body>
+</html>
