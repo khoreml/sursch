@@ -1,0 +1,9 @@
+
+.custom-button {
+    border: 0;
+    padding: 2px;
+    font-size: 20px;
+    font-weight: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
