@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+   <html lang="ru">
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Рахвалова Дарья">
+    <meta name="description" content="Виртуальный сервис опросов предлагает удобное и быстрое решение для проведения опросов. Он идеально подходит для школьников, которые хотят собрать мнения для своих проектов.">
+    <meta name="keywords" content="Опрос школьный школа">
+    <meta name="viewport" content="user-scalable">
+    <title>Главная страница</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" />
+   <header>
+   <style>
+    body {
+            font-family: Arial black, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color:#b6b1b1;
+    }
+    .button {
+        background-color:rgb(102, 88, 88);
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+    }
+    .button:hover {
+  background-color:rgb(58, 58, 58); /* Изменение фона кнопки при наведении */
+    }
+    </style>
+   </head>
+   <body>
+    <style>
+    
+    </style>
+    <nav>
+        <menu>
+            <li><a href="progect.html">Главная</a></li>
+            <li><a href="surveys.html">Опросы</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+        </menu>
+    </nav>
+    </header>
+    <main>
+        <section id="index.html" class="active"></section>
+        <section id="surveys.html"></section>
+        <section id="about.html"></section>
+        <section id="contact.html"></section>
+    </main>
+    <script>
+function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+    <h1 align="center">Виртуальный сервис опросов</h1>
+   <h2 aligh="center">Вы можете пройти опрос или создать новый и ждать ответы участников</h2>
+   <form id="pollForm">
+   </body>
+   </html>
